@@ -13,6 +13,9 @@ export function DeleteTaskDialog({ onConfirmation }: DeleteTaskDialogProps) {
     <>
       <button
         className="btn btn--outline btn--sm"
+        style={{
+        background: 'var(--color-error)'
+      }}
         onClick={() => setIsOpen(true)}
       >
         <Trash2 />

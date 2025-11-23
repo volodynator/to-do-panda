@@ -2,6 +2,7 @@ import { Undo } from 'lucide-react';
 import type { Task } from '../../../../model';
 import { useDBContext } from '../../../context/DBContext';
 import { DeleteTaskDialog } from '../../dialogs';
+import { TaskAllInfoDialog } from '../../dialogs/TaskAllInfoDialog';
 
 interface CompletedTaskButtonsProps {
   task: Task;
@@ -22,6 +23,7 @@ export function CompletedTaskButtons({ task }: CompletedTaskButtonsProps) {
       >
         <Undo />
       </button>
+      <TaskAllInfoDialog task={task}/>
       <DeleteTaskDialog onConfirmation={onConfirmation} />
     </div>
   );

@@ -1,10 +1,15 @@
 import { Dialog } from '@headlessui/react';
-import { CircleFadingPlus } from 'lucide-react';
 import { useState } from 'react';
-import { TaskCreator } from '../tasks';
+import type { Task } from '../../../model';
+import { BookOpen } from 'lucide-react';
+import { TaskEditorDialog } from './TaskEditorDialog';
+
+interface TaskAllInfoDialogProps {
+  task: Task
+}
 
 
-export function TaskCreatorDialog() {
+export function TaskAllInfoDialog({task}: TaskAllInfoDialogProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -12,18 +17,11 @@ export function TaskCreatorDialog() {
       <button
         className="btn btn--outline btn--sm"
         style={{
-            position: 'fixed',
-            width: '100px',
-            height: '100px',
-            bottom: 'var(--space-32)',
-            right: 'var(--space-32)',
-            borderRadius: '999px',
-            zIndex: 20,
-            background: 'var(--color-bg-8)'
-        }}
+        background: 'var(--color-info)'
+      }}
         onClick={() => setIsOpen(true)}
       >
-        <CircleFadingPlus size={64} color="var(--color-primary)"/>
+        <BookOpen/>
       </button>
 
       <Dialog open={isOpen} onClose={() => setIsOpen(false)}>
@@ -58,28 +56,39 @@ export function TaskCreatorDialog() {
                 lineHeight: 'var(--line-height-tight)',
               }}
             >
-              Create Task
+              {task.title}
             </Dialog.Title>
 
             <Dialog.Description
               style={{
                 color: 'var(--color-text-secondary)',
                 fontSize: 'var(--font-size-base)',
-                marginBottom: 'var(--space-8)',
+                marginBottom: 'var(--space-12)',
               }}
             >
-              Please enter the data
+                <div>Category: {task.category}.</div>
+                <div>Created on {task.createdDate}.</div>
+                {task.completed ? <div>Completed on {task.doneDate}.</div> : ''}
+                {task.dueDate ? <div>Due to {task.dueDate}.</div> : ''}
+                Time spent: {Math.floor(task.timeSpent/60)} hours, {task.timeSpent % 60} minutes.
             </Dialog.Description>
 
-            <TaskCreator/>
+            <div style={{
+                color: 'var(--color-text-secondary)',
+                fontSize: 'var(--font-size-base)',
+                marginBottom: 'var(--space-12)',
+              }}>
+                {task.description ? task.description : 'No description.'}
+            </div>
+
 
             <div
               style={{
-                display: 'flex',
                 gap: 'var(--space-12)',
                 justifyContent: 'flex-end',
               }}
             >
+                <TaskEditorDialog task={task}/>
               <button
                 className="btn btn--primary"
                 style={{

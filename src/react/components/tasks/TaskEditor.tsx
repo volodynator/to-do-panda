@@ -6,27 +6,31 @@ import '../../../css/Form.css';
 import '../../../css/Table.css';
 import { useDBContext } from '../../context/DBContext';
 
+interface TaskEditorProps {
+  task: Task
+}
 
-export function TaskCreator() {
-  const [title, setTitle] = useState('');
-  const [description, setDescription] = useState('');
-  const [completed, setCompleted] = useState(false);
-  const [category, setCategory] = useState('');
+
+export function TaskEditor({task}: TaskEditorProps) {
+  const [title, setTitle] = useState(task.title ? task.title : 'Empty task');
+  const [description, setDescription] = useState(task.description ? task.description : '');
+  const [completed, setCompleted] = useState(task.completed);
+  const [category, setCategory] = useState(task.category);
   const [selectedPriority, setSelectedPriority] = useState<
     Priority | undefined
-  >();
-  const [dueDate, setDueDate] = useState('');
-  const [notificationDate, setNotificationDate] = useState('');
-  const [notificationTime, setNotificationTime] = useState('');
+  >(task.priority);
+  const [dueDate, setDueDate] = useState(task.dueDate);
+  const [notificationDate, setNotificationDate] = useState(task.notificationDate);
+  const [notificationTime, setNotificationTime] = useState(task.notificationTime);
   const [status, setStatus] = useState('');
-  const { priorities, createTask, reloadTasksAndPriorities } = useDBContext();
+  const { priorities, updateTask, reloadTasksAndPriorities } = useDBContext();
 
   async function classify(task: string): Promise<string> {
     const result = await revivedClassifier.categorize(task);
     return result;
   }
 
-  async function addTask() {
+  async function buildUpdatedTask() {
     try {
       let finalCategory = category;
 
@@ -40,7 +44,7 @@ export function TaskCreator() {
           color: '#000000',
         };
 
-        const newTask = {
+        const updatedTask = {
           title: title,
           description: description,
           completed: completed,
@@ -53,17 +57,9 @@ export function TaskCreator() {
           timeSpent: 0,
         } as Task;
 
-        await createTask(newTask);
+        await updateTask(task.id, updatedTask);
 
-        setStatus(`Task ${title} successfully added.`);
-        setTitle('');
-        setDescription('');
-        setCompleted(false);
-        setCategory('');
-        setSelectedPriority(undefined);
-        setDueDate('');
-        setNotificationDate('');
-        setNotificationTime('');
+        setStatus(`Task ${title} successfully updated.`);
         await reloadTasksAndPriorities();
       }
     } catch (error) {
@@ -146,7 +142,7 @@ export function TaskCreator() {
         </div>
       </div>
 
-      <button onClick={addTask}>Add Task</button>
+      <button onClick={buildUpdatedTask}>Save</button>
     </div>
   );
 }

@@ -26,6 +26,7 @@ export function App() {
   }, []);
 
   return (
+    <>
     <div>
       <div className="timer">
         <TimerManager />
@@ -66,5 +67,16 @@ export function App() {
         </div>
       </div>
     </div>
+     <footer className="footer">
+        <div className="footer-content">
+          <p className="footer-text">
+            © 2025 TO-DO Panda. Built with React & TypeScript.
+          </p>
+          <div className="footer-links">
+            <a href="mailto:volodymyr.simakov@zohomail.eu" className="footer-link">Contact</a>
+          </div>
+        </div>
+      </footer>
+    </>
   );
 }

@@ -825,7 +825,7 @@ select.form-control {
 }
 
 .disclosure-btn:hover {
-  background: var(--color-secondary) !important;
+  background: none !important;
 }
 
 .disclosure-btn:focus {
@@ -846,7 +846,7 @@ select.form-control {
 /* ==================== TASK ACTIONS ==================== */
 .task-actions-div {
   display: inline-flex;
-  gap: 10px;
+  gap: 5px;
 }
 
 .task-actions-div button {
@@ -859,6 +859,64 @@ select.form-control {
   align-self: flex-start;
   margin-top: var(--space-8);
 }
+
+/* ==================== FOOTER ==================== */
+.footer {
+  background: var(--color-surface);
+  border-top: 1px solid var(--color-card-border);
+  padding: var(--space-24) var(--space-32);
+  margin-top: var(--space-32);
+  width: 100%;
+}
+
+.footer-content {
+  max-width: 1800px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-16);
+}
+
+.footer-text {
+  margin: 0;
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+}
+
+.footer-links {
+  display: flex;
+  gap: var(--space-20);
+}
+
+.footer-link {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-standard);
+}
+
+.footer-link:hover {
+  color: var(--color-primary);
+}
+
+/* Mobile responsive */
+@media (max-width: 640px) {
+  .footer {
+    padding: var(--space-20) var(--space-16);
+  }
+
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+    gap: var(--space-12);
+  }
+
+  .footer-links {
+    gap: var(--space-16);
+  }
+}
+
 
 /* ==================== RESPONSIVE ==================== */
 @media (max-width: 1200px) {

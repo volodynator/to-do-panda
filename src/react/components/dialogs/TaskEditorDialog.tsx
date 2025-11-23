@@ -1,29 +1,26 @@
 import { Dialog } from '@headlessui/react';
-import { CircleFadingPlus } from 'lucide-react';
 import { useState } from 'react';
-import { TaskCreator } from '../tasks';
+import { TaskEditor } from '../tasks';
+import type { Task } from '../../../model';
+
+interface TaskEditorProps {
+  task: Task
+}
 
 
-export function TaskCreatorDialog() {
+export function TaskEditorDialog({task}: TaskEditorProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
     <>
       <button
-        className="btn btn--outline btn--sm"
-        style={{
-            position: 'fixed',
-            width: '100px',
-            height: '100px',
-            bottom: 'var(--space-32)',
-            right: 'var(--space-32)',
-            borderRadius: '999px',
-            zIndex: 20,
-            background: 'var(--color-bg-8)'
-        }}
+      className="btn btn--primary"
+      style={{
+        width: '100%'
+      }}
         onClick={() => setIsOpen(true)}
       >
-        <CircleFadingPlus size={64} color="var(--color-primary)"/>
+        Edit
       </button>
 
       <Dialog open={isOpen} onClose={() => setIsOpen(false)}>
@@ -58,7 +55,7 @@ export function TaskCreatorDialog() {
                 lineHeight: 'var(--line-height-tight)',
               }}
             >
-              Create Task
+              Edit task
             </Dialog.Title>
 
             <Dialog.Description
@@ -68,10 +65,10 @@ export function TaskCreatorDialog() {
                 marginBottom: 'var(--space-8)',
               }}
             >
-              Please enter the data
+              Please edit the data
             </Dialog.Description>
 
-            <TaskCreator/>
+            <TaskEditor task={task}/>
 
             <div
               style={{
