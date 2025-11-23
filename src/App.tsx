@@ -13,6 +13,7 @@ import './css/Button.css';
 import './css/Form.css';
 import './css/Table.css';
 import { useDBContext } from './react/context/DBContext';
+import { CompletedTasksDisclosure } from './react/components/tasks/CompletedTasksDisclosure';
 
 export function App() {
   const {
@@ -43,11 +44,7 @@ export function App() {
           </div>
 
           <div className="section">
-            <h1>Completed Tasks</h1>
-            <TaskList
-              tasks={completedTasks}
-              renderActions={(task) => <CompletedTaskButtons task={task} />}
-            />
+           <CompletedTasksDisclosure tasks={completedTasks}/>
           </div>
 
           <div className="section">
