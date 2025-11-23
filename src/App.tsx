@@ -4,9 +4,7 @@ import { TaskCreator } from './react';
 import { PriorityList } from './react/components/priorities';
 import { PriorityCreator } from './react/components/priorities';
 import { TimerManager } from './react/components/timer';
-import {
-  ActiveTaskButtons
-} from './react/components/tasks/buttons';
+import { ActiveTaskButtons } from './react/components/tasks/buttons';
 import './css/App.css';
 import './css/Button.css';
 import './css/Form.css';
@@ -30,7 +28,7 @@ export function App() {
   return (
     <div>
       <div className="timer">
-        <TimerManager/>
+        <TimerManager />
       </div>
       <div className="app-container">
         <div className="main-content">
@@ -43,7 +41,7 @@ export function App() {
           </div>
 
           <div className="section">
-           <CompletedTasksDisclosure tasks={completedTasks}/>
+            <CompletedTasksDisclosure tasks={completedTasks} />
           </div>
 
           <div className="section">

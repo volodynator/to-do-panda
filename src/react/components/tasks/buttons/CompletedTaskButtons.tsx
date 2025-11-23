@@ -11,7 +11,7 @@ export function CompletedTaskButtons({ task }: CompletedTaskButtonsProps) {
   const { reactivateTask, deleteTask } = useDBContext();
 
   async function onConfirmation() {
-    await deleteTask(task)
+    await deleteTask(task);
   }
 
   return (
@@ -22,7 +22,7 @@ export function CompletedTaskButtons({ task }: CompletedTaskButtonsProps) {
       >
         <Undo />
       </button>
-      <DeleteTaskDialog onConfirmation={onConfirmation}/>
+      <DeleteTaskDialog onConfirmation={onConfirmation} />
     </div>
   );
 }

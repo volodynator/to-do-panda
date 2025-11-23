@@ -11,7 +11,7 @@ export function ActiveTaskButtons({ task }: ActiveTaskButtonsProps) {
   const { completeTask, deleteTask } = useDBContext();
 
   async function onConfirmation() {
-    await deleteTask(task)
+    await deleteTask(task);
   }
 
   return (
@@ -19,7 +19,7 @@ export function ActiveTaskButtons({ task }: ActiveTaskButtonsProps) {
       <button className="task-complete-btn" onClick={() => completeTask(task)}>
         <CircleCheckBig />
       </button>
-      <DeleteTaskDialog onConfirmation={onConfirmation}/>
+      <DeleteTaskDialog onConfirmation={onConfirmation} />
     </div>
   );
 }

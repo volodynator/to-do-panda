@@ -109,6 +109,6 @@ export const useDB = () => {
     completeTask,
     reactivateTask,
     updateTask,
-    deleteTask
+    deleteTask,
   };
 };
