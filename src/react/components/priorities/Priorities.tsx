@@ -1,8 +1,8 @@
-import type { Priority } from '../../model';
+import type { Priority } from '../../../model';
 import PriorityCard from './Priority';
-import '../../css/Button.css';
-import '../../css/Form.css';
-import '../../css/Table.css';
+import '../../../css/Button.css';
+import '../../../css/Form.css';
+import '../../../css/Table.css';
 
 interface PriorityListProps {
   priorities: Priority[];

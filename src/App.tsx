@@ -1,71 +1,78 @@
-import { manager, type Priority, type Task } from './model';
-import { useEffect, useState } from 'react';
-import { TaskList } from './reactContainer';
-import { TaskCreator } from './reactContainer';
-import { PriorityList } from './reactContainer/mainPage/Priorities';
-import { PriorityCreator } from './reactContainer/mainPage/PriorityCreator';
+import { useEffect } from 'react';
+import { TaskList } from './react';
+import { PriorityList } from './react/components/priorities';
+import { PriorityCreator } from './react/components/priorities';
+import { TimerManager } from './react/components/timer';
+import { ActiveTaskButtons } from './react/components/tasks/buttons';
 import './css/App.css';
 import './css/Button.css';
 import './css/Form.css';
 import './css/Table.css';
+import { useDBContext } from './react/context/DBContext';
+import { CompletedTasksDisclosure } from './react/components/tasks/CompletedTasksDisclosure';
+import { TaskCreatorDialog } from './react/components/dialogs';
 
 export function App() {
-  const [tasks, setTasks] = useState<Task[]>([]);
-  const [priorities, setPriorities] = useState<Priority[]>([]);
-
-  async function reloadTasksAndPriorities() {
-    const tasks = await manager.showActiveTasks();
-    const priorities = await manager.showPriorities();
-    setTasks(tasks);
-    setPriorities(priorities);
-  }
-
-  async function clearTasksAndReload() {
-    await manager.clearAllTasks();
-    await reloadTasksAndPriorities();
-  }
+  const {
+    activeTasks,
+    completedTasks,
+    priorities,
+    reloadTasksAndPriorities,
+  } = useDBContext();
 
   useEffect(() => {
     reloadTasksAndPriorities();
   }, []);
 
   return (
-    <div className="app-container">
-      <div className="main-content">
-        <div className="section">
-          <h1>Active Tasks</h1>
-          <TaskList tasks={tasks} onUpdated={reloadTasksAndPriorities} />
-        </div>
-
-        <div className="section">
-          <h1>Add new task</h1>
-          <TaskCreator
-            priorities={priorities}
-            onUpdated={reloadTasksAndPriorities}
-          />
-        </div>
-
-        <button
-          className="secondary clear-button"
-          onClick={clearTasksAndReload}
-        >
-          Clear Tasks
-        </button>
+    <>
+    <div>
+      <div className="timer">
+        <TimerManager />
       </div>
-      <div className="sidebar">
-        <div className="section">
-          <h1>Priorities</h1>
-          <PriorityList
-            priorities={priorities}
-            onUpdated={reloadTasksAndPriorities}
-          />
-        </div>
+      <div className="app-container">
+        <div className="main-content">
+          <div className="section">
+            <h1>Active Tasks</h1>
+            <TaskList
+              tasks={activeTasks}
+              renderActions={(task) => <ActiveTaskButtons task={task} />}
+            />
+          </div>
 
-        <div className="section">
-          <h2>Add new priority</h2>
-          <PriorityCreator onPriorityAdded={reloadTasksAndPriorities} />
+          <div className="section">
+            <CompletedTasksDisclosure tasks={completedTasks} />
+          </div>
+
+          <TaskCreatorDialog/>
+
+        </div>
+        <div className="sidebar">
+          <div className="section">
+            <h1>Priorities</h1>
+            <PriorityList
+              priorities={priorities}
+              onUpdated={reloadTasksAndPriorities}
+            />
+          </div>
+
+          <div className="section">
+            <h2>Add new priority</h2>
+            <PriorityCreator onPriorityAdded={reloadTasksAndPriorities} />
+          </div>
         </div>
       </div>
     </div>
+     <footer className="footer">
+        <div className="footer-content">
+          <p className="footer-text">
+            2025 TO-DO Panda. Built with React & TypeScript.
+          </p>
+          <div className="footer-links">
+            <a href="mailto:volodymyr.simakov@zohomail.eu" className="footer-link">Contact</a>
+          </div>
+        </div>
+      </footer>
+    </>
   );
 }

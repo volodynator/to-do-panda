@@ -1,7 +1,7 @@
-import { manager, type Priority } from '../../model';
-import '../../css/Button.css';
-import '../../css/Form.css';
-import '../../css/Table.css';
+import { manager, type Priority } from '../../../model';
+import '../../../css/Button.css';
+import '../../../css/Form.css';
+import '../../../css/Table.css';
 
 interface PriorityProps {
   priority: Priority;

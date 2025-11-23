@@ -7,9 +7,10 @@ const db = new Dexie('TasksDatabase') as Dexie & {
 };
 
 // Schema declaration:
-db.version(1).stores({
-  tasks: '++id, title, description, completed, category, priority, dueDate',
-  priorities: 'name, color',
+db.version(2).stores({
+  tasks:
+    '++id, title, description, completed, category, priority, createdDate, dueDate, doneDate, notificationDate, notificationTime, timeSpent',
+  priorities: 'name, color, priority',
 });
 
 export { db };

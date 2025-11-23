@@ -1,38 +1,41 @@
-import { manager, type Priority, type Task } from '../../model';
+import { type Priority, type Task } from '../../../model';
 import { useState } from 'react';
-import { revivedClassifier } from '../../classifier/classifier';
-import '../../css/Button.css';
-import '../../css/Form.css';
-import '../../css/Table.css';
+import { revivedClassifier } from '../../../classifier/classifier';
+import '../../../css/Button.css';
+import '../../../css/Form.css';
+import '../../../css/Table.css';
+import { useDBContext } from '../../context/DBContext';
 
-interface TaskCreatorProps {
-  priorities: Priority[];
-  onUpdated: () => void;
+interface TaskEditorProps {
+  task: Task
 }
 
-export function TaskCreator({ priorities, onUpdated }: TaskCreatorProps) {
-  const [title, setTitle] = useState('');
-  const [description, setDescription] = useState('');
-  const [completed, setCompleted] = useState(false);
-  const [category, setCategory] = useState('');
+
+export function TaskEditor({task}: TaskEditorProps) {
+  const [title, setTitle] = useState(task.title ? task.title : 'Empty task');
+  const [description, setDescription] = useState(task.description ? task.description : '');
+  const [completed] = useState(task.completed);
+  const [category, setCategory] = useState(task.category);
   const [selectedPriority, setSelectedPriority] = useState<
     Priority | undefined
-  >();
-  const [dueDate, setDueDate] = useState(new Date());
+  >(task.priority);
+  const [dueDate, setDueDate] = useState(task.dueDate);
+  const [notificationDate, setNotificationDate] = useState(task.notificationDate);
+  const [notificationTime, setNotificationTime] = useState(task.notificationTime);
   const [status, setStatus] = useState('');
+  const { priorities, updateTask, reloadTasksAndPriorities } = useDBContext();
 
   async function classify(task: string): Promise<string> {
     const result = await revivedClassifier.categorize(task);
     return result;
   }
 
-  async function addTask() {
+  async function buildUpdatedTask() {
     try {
       let finalCategory = category;
 
       if (title.length > 0) {
         if (category === '') {
-          console.log('Category empty');
           finalCategory = await classify(title);
         }
 
@@ -41,26 +44,23 @@ export function TaskCreator({ priorities, onUpdated }: TaskCreatorProps) {
           color: '#000000',
         };
 
-        const newTask = {
+        const updatedTask = {
           title: title,
           description: description,
           completed: completed,
           category: finalCategory,
           priority: taskPriority,
+          createdDate: new Date().toDateString(),
           dueDate: dueDate,
+          notificationDate: notificationDate,
+          notificationTime: notificationTime,
+          timeSpent: 0,
         } as Task;
 
-        const id = await manager.createTask(newTask);
-        console.log(await manager.showActiveTasks());
+        await updateTask(task.id, updatedTask);
 
-        setStatus(`Task ${title} successfully added. Got id ${id}`);
-        setTitle('');
-        setDescription('');
-        setCompleted(false);
-        setCategory('');
-        setSelectedPriority(undefined);
-        setDueDate(new Date());
-        onUpdated();
+        setStatus(`Task ${title} successfully updated.`);
+        await reloadTasksAndPriorities();
       }
     } catch (error) {
       setStatus(`Failed to add ${title}: ${error}`);
@@ -87,6 +87,29 @@ export function TaskCreator({ priorities, onUpdated }: TaskCreatorProps) {
             type="text"
             value={category}
             onChange={(ev) => setCategory(ev.target.value)}
+          />
+        </div>
+
+        <div className="form-row">
+          <label>Due Date</label>
+          <input
+            type="date"
+            value={dueDate}
+            onChange={(ev) => setDueDate(ev.target.value)}
+          />
+        </div>
+
+        <div className="form-row form-row--full">
+          <label>Notification</label>
+          <input
+            type="date"
+            value={notificationDate}
+            onChange={(ev) => setNotificationDate(ev.target.value)}
+          />
+          <input
+            type="time"
+            value={notificationTime}
+            onChange={(ev) => setNotificationTime(ev.target.value)}
           />
         </div>
 
@@ -119,7 +142,7 @@ export function TaskCreator({ priorities, onUpdated }: TaskCreatorProps) {
         </div>
       </div>
 
-      <button onClick={addTask}>Add Task</button>
+      <button onClick={buildUpdatedTask}>Save</button>
     </div>
   );
 }

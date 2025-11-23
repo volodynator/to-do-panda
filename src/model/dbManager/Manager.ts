@@ -31,14 +31,21 @@ class DBManagerImpl implements DBManager {
   }
 
   async completeTask(id: string): Promise<void> {
-    await db.tasks.update(id, { completed: true });
+    await db.tasks.update(id, {
+      completed: true,
+      doneDate: new Date().toDateString(),
+    });
   }
 
-  async showActiveTasks(): Promise<Task[]> {
+  async reactivateTask(id: string): Promise<void> {
+    await db.tasks.update(id, { completed: false, doneDate: '' });
+  }
+
+  async getActiveTasks(): Promise<Task[]> {
     return await db.tasks.filter((task) => task.completed === false).toArray();
   }
 
-  async showInactiveTasks(): Promise<Task[]> {
+  async getInactiveTasks(): Promise<Task[]> {
     return await db.tasks.filter((task) => task.completed === true).toArray();
   }
 
@@ -72,7 +79,7 @@ class DBManagerImpl implements DBManager {
     await db.priorities.delete(name);
   }
 
-  async showPriorities(): Promise<Priority[]> {
+  async getPriorities(): Promise<Priority[]> {
     return db.priorities.toArray();
   }
 }

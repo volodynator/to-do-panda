@@ -1,8 +1,8 @@
-import { manager, type Priority } from '../../model';
+import { manager, type Priority } from '../../../model';
 import { useState } from 'react';
-import '../../css/Button.css';
-import '../../css/Form.css';
-import '../../css/Table.css';
+import '../../../css/Button.css';
+import '../../../css/Form.css';
+import '../../../css/Table.css';
 
 export function PriorityCreator({
   onPriorityAdded,
