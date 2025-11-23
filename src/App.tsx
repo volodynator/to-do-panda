@@ -47,9 +47,6 @@ export function App() {
 
           <TaskCreatorDialog/>
 
-          <button className="secondary clear-button" onClick={clearAllTasks}>
-            Clear Tasks
-          </button>
         </div>
         <div className="sidebar">
           <div className="section">
