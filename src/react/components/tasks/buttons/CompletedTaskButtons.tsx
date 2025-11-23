@@ -1,6 +1,7 @@
-import { Undo, Trash } from 'lucide-react';
+import { Undo } from 'lucide-react';
 import type { Task } from '../../../../model';
 import { useDBContext } from '../../../context/DBContext';
+import { DeleteTaskDialog } from '../../dialogs';
 
 interface CompletedTaskButtonsProps {
   task: Task;
@@ -8,6 +9,10 @@ interface CompletedTaskButtonsProps {
 
 export function CompletedTaskButtons({ task }: CompletedTaskButtonsProps) {
   const { reactivateTask, deleteTask } = useDBContext();
+
+  async function onConfirmation() {
+    await deleteTask(task)
+  }
 
   return (
     <div className="task-actions-div">
@@ -17,9 +22,7 @@ export function CompletedTaskButtons({ task }: CompletedTaskButtonsProps) {
       >
         <Undo />
       </button>
-      <button className="task-delete-btn" onClick={() => deleteTask(task)}>
-        <Trash />
-      </button>
+      <DeleteTaskDialog onConfirmation={onConfirmation}/>
     </div>
   );
 }

@@ -956,6 +956,17 @@ body {
   font-size: 0.875rem;
 }
 
+.task-actions-div {
+  display: inline-flex;
+  gap: 10px;
+}
+
+.task-actions-div button{
+  width: 35px;
+  height: 35px;
+  padding: 0;
+}
+
 /* Clear tasks button */
 .clear-button {
   align-self: flex-start;

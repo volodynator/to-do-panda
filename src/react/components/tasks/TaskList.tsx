@@ -19,7 +19,7 @@ export function TaskList({ tasks, renderActions }: TaskListProps) {
           <th>Category</th>
           <th>Hours Spent</th>
           <th>Minutes Spent</th>
-          <th>Action</th>
+          <th>Actions</th>
         </tr>
       </thead>
       <tbody>
