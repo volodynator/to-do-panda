@@ -1,7 +1,7 @@
 import { CircleCheckBig } from 'lucide-react';
 import type { Task } from '../../../../model';
 import { useDBContext } from '../../../context/DBContext';
-import { DeleteTaskDialog, TaskEditorDialog } from '../../dialogs';
+import { DeleteTaskDialog } from '../../dialogs';
 import { TaskAllInfoDialog } from '../../dialogs/TaskAllInfoDialog';
 
 interface ActiveTaskButtonsProps {

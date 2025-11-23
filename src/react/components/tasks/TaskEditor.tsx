@@ -14,7 +14,7 @@ interface TaskEditorProps {
 export function TaskEditor({task}: TaskEditorProps) {
   const [title, setTitle] = useState(task.title ? task.title : 'Empty task');
   const [description, setDescription] = useState(task.description ? task.description : '');
-  const [completed, setCompleted] = useState(task.completed);
+  const [completed] = useState(task.completed);
   const [category, setCategory] = useState(task.category);
   const [selectedPriority, setSelectedPriority] = useState<
     Priority | undefined
