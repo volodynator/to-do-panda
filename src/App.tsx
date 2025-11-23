@@ -66,7 +66,7 @@ export function App() {
      <footer className="footer">
         <div className="footer-content">
           <p className="footer-text">
-            © 2025 TO-DO Panda. Built with React & TypeScript.
+            2025 TO-DO Panda. Built with React & TypeScript.
           </p>
           <div className="footer-links">
             <a href="mailto:volodymyr.simakov@zohomail.eu" className="footer-link">Contact</a>
