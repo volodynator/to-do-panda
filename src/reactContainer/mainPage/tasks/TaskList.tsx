@@ -17,6 +17,7 @@ export function TaskList({ tasks, renderActions }: TaskListProps) {
           <th>Title</th>
           <th>Priority</th>
           <th>Category</th>
+          <th>Hours Spent</th>
           <th>Minutes Spent</th>
           <th>Action</th>
         </tr>

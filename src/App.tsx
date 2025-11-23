@@ -4,11 +4,12 @@ import { TaskList } from './reactContainer';
 import { TaskCreator } from './reactContainer';
 import { PriorityList } from './reactContainer/mainPage/priorities';
 import { PriorityCreator } from './reactContainer/mainPage/priorities';
+import { TimerManager } from './reactContainer/mainPage/timer';
+import { CircleCheckBig, Undo } from 'lucide-react';
 import './css/App.css';
 import './css/Button.css';
 import './css/Form.css';
 import './css/Table.css';
-import { TimerManager } from './reactContainer/mainPage/timer';
 
 export function App() {
   const [activeTasks, setActiveTasks] = useState<Task[]>([]);
@@ -59,7 +60,7 @@ export function App() {
               tasks={activeTasks}
               renderActions={(task) => (
                 <button onClick={() => completeTaskAndReload(task)}>
-                  Complete
+                  <CircleCheckBig/>
                 </button>
               )}
             />
@@ -71,7 +72,7 @@ export function App() {
               tasks={completedTasks}
               renderActions={(task) => (
                 <button onClick={() => reactivateTaskAndReload(task)}>
-                  Reactivate
+                  <Undo/>
                 </button>
               )}
             />
