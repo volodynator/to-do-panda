@@ -13,7 +13,7 @@ export function CompletedTasksDisclosure({tasks}: CompletedTasksDisclosureProps)
     <Disclosure>
       {({ open }) => (
         <>
-          <DisclosureButton className="disclosure-btn">Completed tasks {open ? <ChevronUp/> : <ChevronDown/>}</DisclosureButton>
+          <DisclosureButton className="disclosure-btn">Completed Tasks{open ? <ChevronUp/> : <ChevronDown/>}</DisclosureButton>
       <DisclosurePanel className="disclosure-panel">
        <TaskList
                      tasks={tasks}

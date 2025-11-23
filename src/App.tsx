@@ -5,8 +5,7 @@ import { PriorityList } from './react/components/priorities';
 import { PriorityCreator } from './react/components/priorities';
 import { TimerManager } from './react/components/timer';
 import {
-  ActiveTaskButtons,
-  CompletedTaskButtons,
+  ActiveTaskButtons
 } from './react/components/tasks/buttons';
 import './css/App.css';
 import './css/Button.css';
