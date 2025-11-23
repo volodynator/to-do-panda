@@ -22,7 +22,7 @@ export default function TaskCard({ task, renderActions }: TaskCardProps) {
         </div>
       </td>
       <td>{task.category}</td>
-      <td>{task.timeSpent ? Math.floor(task.timeSpent/60) : 0}</td>
+      <td>{task.timeSpent ? Math.floor(task.timeSpent / 60) : 0}</td>
       <td>{task.timeSpent ? task.timeSpent % 60 : 0}</td>
       <td>{renderActions(task)}</td>
     </tr>

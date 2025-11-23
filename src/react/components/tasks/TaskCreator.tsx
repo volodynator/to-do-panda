@@ -57,7 +57,7 @@ export function TaskCreator({ priorities, onUpdated }: TaskCreatorProps) {
         } as Task;
 
         const id = await manager.createTask(newTask);
-        console.log(await manager.showActiveTasks());
+        console.log(await manager.getActiveTasks());
 
         setStatus(`Task ${title} successfully added. Got id ${id}`);
         setTitle('');
