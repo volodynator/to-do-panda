@@ -1,46 +1,139 @@
+/* ==================== ROOT VARIABLES ==================== */
 :root {
-  /* Primitive Color Tokens - обновлены на iOS colors */
+  /* Primitive Color Tokens - bright palette with contrast */
   --color-white: rgba(255, 255, 255, 1);
   --color-black: rgba(0, 0, 0, 1);
-  --color-cream-50: rgba(242, 242, 247, 1);        /* iOS System Gray 6 */
-  --color-cream-100: rgba(255, 255, 255, 1);       /* White */
+  --color-cream-50: rgba(248, 249, 250, 1);
+  --color-cream-100: rgba(255, 255, 255, 1);
   --color-gray-200: rgba(245, 245, 245, 1);
   --color-gray-300: rgba(167, 169, 169, 1);
-  --color-gray-400: rgba(142, 142, 147, 1);        /* iOS System Gray */
+  --color-gray-400: rgba(142, 142, 147, 1);
   --color-slate-500: rgba(98, 108, 113, 1);
   --color-brown-600: rgba(142, 142, 147, 1);
-  --color-charcoal-700: rgba(28, 28, 30, 1);       /* iOS Dark Gray 1 */
-  --color-charcoal-800: rgba(44, 44, 46, 1);       /* iOS Dark Gray 2 */
+  --color-charcoal-700: rgba(18, 18, 20, 1);
+  --color-charcoal-800: rgba(28, 28, 30, 1);
   --color-slate-900: rgba(0, 0, 0, 1);
-  --color-blue-300: rgba(135, 227, 255, 1);        /* Sky Blue (lighter) */
-  --color-blue-400: rgba(109, 217, 255, 1);        /* Sky Blue (base) */
-  --color-blue-500: rgba(109, 217, 255, 1);        /* Sky Blue (primary) */
-  --color-blue-600: rgba(85, 195, 235, 1);         /* Sky Blue (hover) */
-  --color-blue-700: rgba(65, 175, 215, 1);         /* Sky Blue (active) */
-  --color-blue-800: rgba(50, 155, 195, 1);         /* Sky Blue (dark) */
-  --color-red-400: rgba(255, 69, 58, 1);           /* iOS Red (dark) */
-  --color-red-500: rgba(255, 59, 48, 1);           /* iOS Red */
-  --color-orange-400: rgba(255, 159, 10, 1);       /* iOS Orange (dark) */
-  --color-orange-500: rgba(255, 149, 0, 1);        /* iOS Orange */
+  
+  /* Bright color palette */
+  --color-blue-300: rgba(100, 200, 255, 1);
+  --color-blue-400: rgba(50, 150, 255, 1);
+  --color-blue-500: rgba(0, 122, 255, 1);
+  --color-blue-600: rgba(0, 100, 230, 1);
+  --color-blue-700: rgba(0, 80, 200, 1);
+  --color-blue-800: rgba(0, 60, 170, 1);
+  
+  --color-purple-400: rgba(191, 90, 242, 1);
+  --color-purple-500: rgba(175, 82, 222, 1);
+  --color-purple-600: rgba(159, 74, 202, 1);
+  
+  --color-pink-400: rgba(255, 55, 95, 1);
+  --color-pink-500: rgba(255, 45, 85, 1);
+  --color-pink-600: rgba(235, 35, 75, 1);
+  
+  --color-green-400: rgba(50, 215, 75, 1);
+  --color-green-500: rgba(52, 199, 89, 1);
+  --color-green-600: rgba(48, 183, 83, 1);
+  
+  --color-yellow-400: rgba(255, 214, 10, 1);
+  --color-yellow-500: rgba(255, 204, 0, 1);
+  --color-yellow-600: rgba(235, 184, 0, 1);
+  
+  --color-red-400: rgba(255, 69, 58, 1);
+  --color-red-500: rgba(255, 59, 48, 1);
+  --color-red-600: rgba(235, 49, 38, 1);
+  
+  --color-orange-400: rgba(255, 159, 10, 1);
+  --color-orange-500: rgba(255, 149, 0, 1);
+  --color-orange-600: rgba(235, 129, 0, 1);
+  
+  --color-cyan-400: rgba(50, 173, 230, 1);
+  --color-cyan-500: rgba(32, 156, 238, 1);
+  --color-cyan-600: rgba(28, 140, 214, 1);
 
   /* RGB versions for opacity control */
   --color-brown-600-rgb: 142, 142, 147;
-  --color-blue-500-rgb: 109, 217, 255;             /* NEW Primary RGB */
+  --color-blue-500-rgb: 0, 122, 255;
+  --color-purple-500-rgb: 175, 82, 222;
+  --color-pink-500-rgb: 255, 45, 85;
+  --color-green-500-rgb: 52, 199, 89;
+  --color-yellow-500-rgb: 255, 204, 0;
+  --color-red-500-rgb: 255, 59, 48;
+  --color-orange-500-rgb: 255, 149, 0;
+  --color-cyan-500-rgb: 32, 156, 238;
   --color-slate-900-rgb: 0, 0, 0;
   --color-slate-500-rgb: 98, 108, 113;
-  --color-red-500-rgb: 255, 59, 48;
   --color-red-400-rgb: 255, 69, 58;
-  --color-orange-500-rgb: 255, 149, 0;
   --color-orange-400-rgb: 255, 159, 10;
+  --color-blue-rgb: 0, 122, 255;
+  --color-green-rgb: 52, 199, 89;
+  --color-red-rgb: 255, 59, 48;
+  --color-orange-rgb: 255, 149, 0;
+  --color-purple-rgb: 175, 82, 222;
+  --color-pink-rgb: 255, 45, 85;
+  --color-yellow-rgb: 255, 204, 0;
+  --color-cyan-rgb: 32, 156, 238;
+  --color-gray-rgb: 142, 142, 147;
+  --color-text-primary-rgb: 33, 37, 41;
+  --color-text-secondary-rgb: 108, 117, 125;
 
-  --color-bg-1: rgba(109, 217, 255, 0.08);         /* Sky Blue */
-  --color-bg-2: rgba(255, 149, 0, 0.08);           /* iOS Orange */
-  --color-bg-3: rgba(52, 199, 89, 0.08);           /* iOS Green */
-  --color-bg-4: rgba(255, 59, 48, 0.08);           /* iOS Red */
-  --color-bg-5: rgba(175, 82, 222, 0.08);          /* iOS Purple */
-  --color-bg-6: rgba(255, 149, 0, 0.08);           /* iOS Orange */
-  --color-bg-7: rgba(255, 45, 85, 0.08);           /* iOS Pink */
-  --color-bg-8: rgba(109, 217, 255, 0.08);         /* Sky Blue */
+  /* Bright background accents */
+  --color-bg-1: rgba(0, 122, 255, 0.12);
+  --color-bg-2: rgba(255, 149, 0, 0.12);
+  --color-bg-3: rgba(52, 199, 89, 0.12);
+  --color-bg-4: rgba(255, 59, 48, 0.12);
+  --color-bg-5: rgba(175, 82, 222, 0.12);
+  --color-bg-6: rgba(255, 204, 0, 0.12);
+  --color-bg-7: rgba(255, 45, 85, 0.12);
+  --color-bg-8: rgba(32, 156, 238, 0.12);
+
+  /* Semantic Color Tokens - Light Mode (DEFAULT) */
+  --color-background: rgb(248, 249, 250);
+  --color-surface: rgb(255, 255, 255);
+  --color-text: rgb(33, 37, 41);
+  --color-text-secondary: rgba(108, 117, 125, 0.8);
+  
+  /* Primary Color - Bright Blue */
+  --color-primary: rgb(0, 122, 255);
+  --color-primary-hover: rgb(0, 100, 230);
+  --color-primary-active: rgb(0, 80, 200);
+  
+  --color-secondary: rgba(142, 142, 147, 0.15);
+  --color-secondary-hover: rgba(142, 142, 147, 0.25);
+  --color-secondary-active: rgba(142, 142, 147, 0.35);
+  
+  --color-border: rgba(0, 0, 0, 0.12);
+  --color-btn-primary-text: rgb(255, 255, 255);
+  --color-card-border: rgba(0, 0, 0, 0.08);
+  --color-card-border-inner: rgba(0, 0, 0, 0.06);
+  
+  /* Bright status colors */
+  --color-error: rgb(255, 59, 48);
+  --color-success: rgb(52, 199, 89);
+  --color-warning: rgb(255, 149, 0);
+  --color-info: rgb(0, 122, 255);
+  
+  /* Additional accent colors */
+  --color-accent-purple: rgb(175, 82, 222);
+  --color-accent-pink: rgb(255, 45, 85);
+  --color-accent-cyan: rgb(32, 156, 238);
+  --color-accent-yellow: rgb(255, 204, 0);
+  
+  --color-focus-ring: rgba(0, 122, 255, 0.5);
+
+  /* RGB versions for status colors */
+  --color-success-rgb: 52, 199, 89;
+  --color-error-rgb: 255, 59, 48;
+  --color-warning-rgb: 255, 149, 0;
+  --color-info-rgb: 0, 122, 255;
+
+  /* Common style patterns */
+  --focus-ring: 0 0 0 4px var(--color-focus-ring);
+  --focus-outline: 2px solid var(--color-primary);
+  --status-bg-opacity: 0.15;
+  --status-border-opacity: 0.3;
+  --select-caret-light: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23000000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  --select-caret-dark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23f5f5f5' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  --color-border-secondary: rgba(0, 0, 0, 0.12);
 
   /* Typography */
   --font-family-base: "FKGroteskNeue", "Geist", "Inter", -apple-system,
@@ -85,13 +178,12 @@
   --radius-lg: 12px;
   --radius-full: 9999px;
 
-  /* Shadows */
-  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.02);
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.04),
-    0 2px 4px -1px rgba(0, 0, 0, 0.02);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.04),
-    0 4px 6px -2px rgba(0, 0, 0, 0.02);
+  /* More expressive shadows */
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 20px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.08);
+  --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.15), 0 8px 16px rgba(0, 0, 0, 0.1);
   --shadow-inset-sm: inset 0 1px 0 rgba(255, 255, 255, 0.15),
     inset 0 -1px 0 rgba(0, 0, 0, 0.03);
 
@@ -107,166 +199,70 @@
   --container-xl: 1280px;
 }
 
-/* Light mode colors - DEFAULT */
-[data-color-scheme="light"] {
-  /* RGB versions for opacity control (light mode) */
-  --color-blue-rgb: 109, 217, 255;
-  --color-green-rgb: 52, 199, 89;
-  --color-red-rgb: 255, 59, 48;
-  --color-orange-rgb: 255, 149, 0;
-  --color-gray-rgb: 142, 142, 147;
-  --color-text-primary-rgb: 0, 0, 0;
-  --color-text-secondary-rgb: 142, 142, 147;
-
-  /* Semantic Color Tokens (Light Mode) */
-  --color-background: rgb(242, 242, 247);          /* iOS System Gray 6 */
-  --color-surface: rgb(255, 255, 255);             /* White */
-  --color-text: rgb(0, 0, 0);                      /* Label */
-  --color-text-secondary: rgba(142, 142, 147, 0.6); /* Secondary Label */
-  
-  /* Primary Color - Sky Blue! */
-  --color-primary: rgb(109, 217, 255);             /* Sky Blue */
-  --color-primary-hover: rgb(85, 195, 235);        /* Darker on hover */
-  --color-primary-active: rgb(65, 175, 215);       /* Even darker on active */
-  
-  --color-secondary: rgba(142, 142, 147, 0.12);
-  --color-secondary-hover: rgba(142, 142, 147, 0.20);
-  --color-secondary-active: rgba(142, 142, 147, 0.30);
-  
-  --color-border: rgba(142, 142, 147, 0.3);
-  --color-btn-primary-text: rgb(0, 0, 0);          /* Dark text on light blue */
-  --color-card-border: rgba(142, 142, 147, 0.15);
-  --color-card-border-inner: rgba(142, 142, 147, 0.10);
-  
-  --color-error: rgb(255, 59, 48);                 /* iOS Red */
-  --color-success: rgb(52, 199, 89);               /* iOS Green */
-  --color-warning: rgb(255, 149, 0);               /* iOS Orange */
-  --color-info: rgb(109, 217, 255);                /* Sky Blue */
-  
-  --color-focus-ring: rgba(109, 217, 255, 0.4);
-
-  /* RGB versions for status colors */
-  --color-success-rgb: 52, 199, 89;
-  --color-error-rgb: 255, 59, 48;
-  --color-warning-rgb: 255, 149, 0;
-  --color-info-rgb: 109, 217, 255;
-
-  /* Common style patterns */
-  --focus-ring: 0 0 0 3px var(--color-focus-ring);
-  --focus-outline: 2px solid var(--color-primary);
-  --status-bg-opacity: 0.15;
-  --status-border-opacity: 0.25;
-  --select-caret-light: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23000000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
-}
-
-/* Dark mode colors */
+/* ==================== DARK MODE ==================== */
 @media (prefers-color-scheme: dark) {
   :root {
     --color-gray-400-rgb: 142, 142, 147;
-    --color-blue-rgb: 135, 227, 255;               /* Lighter blue for dark mode */
+    --color-blue-rgb: 10, 132, 255;
+    --color-purple-rgb: 191, 90, 242;
+    --color-pink-rgb: 255, 55, 95;
+    --color-green-rgb: 50, 215, 75;
+    --color-yellow-rgb: 255, 214, 10;
+    --color-cyan-rgb: 50, 173, 230;
     --color-gray-300-rgb: 174, 174, 178;
     --color-gray-200-rgb: 229, 229, 234;
 
-    --color-bg-1: rgba(135, 227, 255, 0.15);       /* Sky Blue Dark */
-    --color-bg-2: rgba(255, 159, 10, 0.15);        /* iOS Orange Dark */
-    --color-bg-3: rgba(50, 215, 75, 0.15);         /* iOS Green Dark */
-    --color-bg-4: rgba(255, 69, 58, 0.15);         /* iOS Red Dark */
-    --color-bg-5: rgba(191, 90, 242, 0.15);        /* iOS Purple Dark */
-    --color-bg-6: rgba(255, 159, 10, 0.15);        /* iOS Orange Dark */
-    --color-bg-7: rgba(255, 55, 95, 0.15);         /* iOS Pink Dark */
-    --color-bg-8: rgba(135, 227, 255, 0.15);       /* Sky Blue Dark */
+    --color-bg-1: rgba(10, 132, 255, 0.2);
+    --color-bg-2: rgba(255, 159, 10, 0.2);
+    --color-bg-3: rgba(50, 215, 75, 0.2);
+    --color-bg-4: rgba(255, 69, 58, 0.2);
+    --color-bg-5: rgba(191, 90, 242, 0.2);
+    --color-bg-6: rgba(255, 214, 10, 0.2);
+    --color-bg-7: rgba(255, 55, 95, 0.2);
+    --color-bg-8: rgba(50, 173, 230, 0.2);
 
-    --color-background: rgb(28, 28, 30);           /* iOS Dark Gray 1 */
-    --color-surface: rgb(44, 44, 46);              /* iOS Dark Gray 2 */
-    --color-text: rgb(229, 229, 234);              /* iOS Label Dark */
-    --color-text-secondary: rgba(174, 174, 178, 0.6);
-    --color-primary: rgb(135, 227, 255);           /* Lighter Sky Blue for dark */
-    --color-primary-hover: rgb(109, 217, 255);     /* Base blue on hover */
-    --color-primary-active: rgb(85, 195, 235);     /* Darker on active */
-    --color-secondary: rgba(142, 142, 147, 0.15);
-    --color-secondary-hover: rgba(142, 142, 147, 0.25);
-    --color-secondary-active: rgba(142, 142, 147, 0.3);
-    --color-border: rgba(142, 142, 147, 0.3);
-    --color-error: rgb(255, 69, 58);               /* iOS Red Dark */
-    --color-success: rgb(50, 215, 75);             /* iOS Green Dark */
-    --color-warning: rgb(255, 159, 10);            /* iOS Orange Dark */
-    --color-info: rgb(135, 227, 255);              /* Sky Blue Dark */
-    --color-focus-ring: rgba(135, 227, 255, 0.4);
-    --color-btn-primary-text: rgb(0, 0, 0);        /* Dark text on light blue */
-    --color-card-border: rgba(142, 142, 147, 0.2);
-    --color-card-border-inner: rgba(142, 142, 147, 0.15);
-    --shadow-inset-sm: inset 0 1px 0 rgba(255, 255, 255, 0.1),
-      inset 0 -1px 0 rgba(0, 0, 0, 0.15);
-    --color-border-secondary: rgba(142, 142, 147, 0.2);
-    --color-select-caret: rgba(229, 229, 234, 0.8);
+    --color-background: rgb(18, 18, 20);
+    --color-surface: rgb(28, 28, 30);
+    --color-text: rgb(255, 255, 255);
+    --color-text-secondary: rgba(229, 229, 234, 0.7);
+    --color-primary: rgb(10, 132, 255);
+    --color-primary-hover: rgb(40, 150, 255);
+    --color-primary-active: rgb(70, 170, 255);
+    --color-secondary: rgba(142, 142, 147, 0.2);
+    --color-secondary-hover: rgba(142, 142, 147, 0.3);
+    --color-secondary-active: rgba(142, 142, 147, 0.4);
+    --color-border: rgba(255, 255, 255, 0.15);
+    --color-error: rgb(255, 69, 58);
+    --color-success: rgb(50, 215, 75);
+    --color-warning: rgb(255, 159, 10);
+    --color-info: rgb(10, 132, 255);
+    
+    --color-accent-purple: rgb(191, 90, 242);
+    --color-accent-pink: rgb(255, 55, 95);
+    --color-accent-cyan: rgb(50, 173, 230);
+    --color-accent-yellow: rgb(255, 214, 10);
+    
+    --color-focus-ring: rgba(10, 132, 255, 0.5);
+    --color-btn-primary-text: rgb(255, 255, 255);
+    --color-card-border: rgba(255, 255, 255, 0.1);
+    --color-card-border-inner: rgba(255, 255, 255, 0.08);
+    --shadow-inset-sm: inset 0 1px 0 rgba(255, 255, 255, 0.12),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.2);
+    --color-border-secondary: rgba(255, 255, 255, 0.12);
 
-    --focus-ring: 0 0 0 3px var(--color-focus-ring);
+    --focus-ring: 0 0 0 4px var(--color-focus-ring);
     --focus-outline: 2px solid var(--color-primary);
-    --status-bg-opacity: 0.15;
-    --status-border-opacity: 0.25;
-    --select-caret-dark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23f5f5f5' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    --status-bg-opacity: 0.2;
+    --status-border-opacity: 0.35;
 
     --color-success-rgb: 50, 215, 75;
     --color-error-rgb: 255, 69, 58;
     --color-warning-rgb: 255, 159, 10;
-    --color-info-rgb: 135, 227, 255;
+    --color-info-rgb: 10, 132, 255;
   }
 }
 
-/* Manual dark mode override */
-[data-color-scheme="dark"] {
-  --color-gray-400-rgb: 142, 142, 147;
-  --color-blue-rgb: 135, 227, 255;
-  --color-gray-300-rgb: 174, 174, 178;
-  --color-gray-200-rgb: 229, 229, 234;
-
-  --color-bg-1: rgba(135, 227, 255, 0.15);
-  --color-bg-2: rgba(255, 159, 10, 0.15);
-  --color-bg-3: rgba(50, 215, 75, 0.15);
-  --color-bg-4: rgba(255, 69, 58, 0.15);
-  --color-bg-5: rgba(191, 90, 242, 0.15);
-  --color-bg-6: rgba(255, 159, 10, 0.15);
-  --color-bg-7: rgba(255, 55, 95, 0.15);
-  --color-bg-8: rgba(135, 227, 255, 0.15);
-
-  --color-background: rgb(28, 28, 30);
-  --color-surface: rgb(44, 44, 46);
-  --color-text: rgb(229, 229, 234);
-  --color-text-secondary: rgba(174, 174, 178, 0.6);
-  --color-primary: rgb(135, 227, 255);
-  --color-primary-hover: rgb(109, 217, 255);
-  --color-primary-active: rgb(85, 195, 235);
-  --color-secondary: rgba(142, 142, 147, 0.15);
-  --color-secondary-hover: rgba(142, 142, 147, 0.25);
-  --color-secondary-active: rgba(142, 142, 147, 0.3);
-  --color-border: rgba(142, 142, 147, 0.3);
-  --color-error: rgb(255, 69, 58);
-  --color-success: rgb(50, 215, 75);
-  --color-warning: rgb(255, 159, 10);
-  --color-info: rgb(135, 227, 255);
-  --color-focus-ring: rgba(135, 227, 255, 0.4);
-  --color-btn-primary-text: rgb(0, 0, 0);
-  --color-card-border: rgba(142, 142, 147, 0.15);
-  --color-card-border-inner: rgba(142, 142, 147, 0.15);
-  --shadow-inset-sm: inset 0 1px 0 rgba(255, 255, 255, 0.1),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.15);
-  --color-border-secondary: rgba(142, 142, 147, 0.2);
-  --color-select-caret: rgba(229, 229, 234, 0.8);
-
-  --focus-ring: 0 0 0 3px var(--color-focus-ring);
-  --focus-outline: 2px solid var(--color-primary);
-  --status-bg-opacity: 0.15;
-  --status-border-opacity: 0.25;
-  --select-caret-dark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23f5f5f5' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
-
-  --color-success-rgb: 50, 215, 75;
-  --color-error-rgb: 255, 69, 58;
-  --color-warning-rgb: 255, 159, 10;
-  --color-info-rgb: 135, 227, 255;
-}
-
-
-/* Base styles */
+/* ==================== BASE STYLES ==================== */
 html {
   font-size: var(--font-size-base);
   font-family: var(--font-family-base);
@@ -280,6 +276,10 @@ html {
 body {
   margin: 0;
   padding: 0;
+  font-family: var(--font-family-base);
+  background-color: var(--color-background);
+  color: var(--color-text);
+  line-height: var(--line-height-normal);
 }
 
 *,
@@ -288,13 +288,8 @@ body {
   box-sizing: inherit;
 }
 
-/* Typography */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+/* ==================== TYPOGRAPHY ==================== */
+h1, h2, h3, h4, h5, h6 {
   margin: 0;
   font-weight: var(--font-weight-semibold);
   line-height: var(--line-height-tight);
@@ -302,24 +297,12 @@ h6 {
   letter-spacing: var(--letter-spacing-tight);
 }
 
-h1 {
-  font-size: var(--font-size-4xl);
-}
-h2 {
-  font-size: var(--font-size-3xl);
-}
-h3 {
-  font-size: var(--font-size-2xl);
-}
-h4 {
-  font-size: var(--font-size-xl);
-}
-h5 {
-  font-size: var(--font-size-lg);
-}
-h6 {
-  font-size: var(--font-size-md);
-}
+h1 { font-size: var(--font-size-4xl); }
+h2 { font-size: var(--font-size-3xl); }
+h3 { font-size: var(--font-size-2xl); }
+h4 { font-size: var(--font-size-xl); }
+h5 { font-size: var(--font-size-lg); }
+h6 { font-size: var(--font-size-md); }
 
 p {
   margin: 0 0 var(--space-16) 0;
@@ -335,8 +318,7 @@ a:hover {
   color: var(--color-primary-hover);
 }
 
-code,
-pre {
+code, pre {
   font-family: var(--font-family-mono);
   font-size: calc(var(--font-size-base) * 0.95);
   background-color: var(--color-secondary);
@@ -359,7 +341,7 @@ pre code {
   padding: 0;
 }
 
-/* Buttons */
+/* ==================== BUTTONS ==================== */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -438,7 +420,7 @@ pre code {
   cursor: not-allowed;
 }
 
-/* Form elements */
+/* ==================== FORM ELEMENTS ==================== */
 .form-control {
   display: block;
   width: 100%;
@@ -450,7 +432,7 @@ pre code {
   border: 1px solid var(--color-border);
   border-radius: var(--radius-base);
   transition: border-color var(--duration-fast) var(--ease-standard),
-  box-shadow var(--duration-fast) var(--ease-standard);
+    box-shadow var(--duration-fast) var(--ease-standard);
 }
 
 textarea.form-control {
@@ -470,20 +452,10 @@ select.form-control {
   padding-right: var(--space-32);
 }
 
-/* Add a dark mode specific caret */
 @media (prefers-color-scheme: dark) {
   select.form-control {
     background-image: var(--select-caret-dark);
   }
-}
-
-/* Also handle data-color-scheme */
-[data-color-scheme="dark"] select.form-control {
-  background-image: var(--select-caret-dark);
-}
-
-[data-color-scheme="light"] select.form-control {
-  background-image: var(--select-caret-light);
 }
 
 .form-control:focus {
@@ -502,7 +474,7 @@ select.form-control {
   margin-bottom: var(--space-16);
 }
 
-/* Card component */
+/* ==================== CARD COMPONENT ==================== */
 .card {
   background-color: var(--color-surface);
   border-radius: var(--radius-lg);
@@ -520,13 +492,12 @@ select.form-control {
   padding: var(--space-16);
 }
 
-.card__header,
-.card__footer {
+.card__header, .card__footer {
   padding: var(--space-16);
   border-bottom: 1px solid var(--color-card-border-inner);
 }
 
-/* Status indicators - simplified with CSS variables */
+/* ==================== STATUS INDICATORS ==================== */
 .status {
   display: inline-flex;
   align-items: center;
@@ -537,46 +508,30 @@ select.form-control {
 }
 
 .status--success {
-  background-color: rgba(
-    var(--color-success-rgb, 52, 199, 89),
-    var(--status-bg-opacity)
-  );
+  background-color: rgba(var(--color-success-rgb), var(--status-bg-opacity));
   color: var(--color-success);
-  border: 1px solid
-    rgba(var(--color-success-rgb, 52, 199, 89), var(--status-border-opacity));
+  border: 1px solid rgba(var(--color-success-rgb), var(--status-border-opacity));
 }
 
 .status--error {
-  background-color: rgba(
-    var(--color-error-rgb, 255, 59, 48),
-    var(--status-bg-opacity)
-  );
+  background-color: rgba(var(--color-error-rgb), var(--status-bg-opacity));
   color: var(--color-error);
-  border: 1px solid
-    rgba(var(--color-error-rgb, 255, 59, 48), var(--status-border-opacity));
+  border: 1px solid rgba(var(--color-error-rgb), var(--status-border-opacity));
 }
 
 .status--warning {
-  background-color: rgba(
-    var(--color-warning-rgb, 255, 149, 0),
-    var(--status-bg-opacity)
-  );
+  background-color: rgba(var(--color-warning-rgb), var(--status-bg-opacity));
   color: var(--color-warning);
-  border: 1px solid
-    rgba(var(--color-warning-rgb, 255, 149, 0), var(--status-border-opacity));
+  border: 1px solid rgba(var(--color-warning-rgb), var(--status-border-opacity));
 }
 
 .status--info {
-  background-color: rgba(
-    var(--color-info-rgb, 0, 199, 190),
-    var(--status-bg-opacity)
-  );
+  background-color: rgba(var(--color-info-rgb), var(--status-bg-opacity));
   color: var(--color-info);
-  border: 1px solid
-    rgba(var(--color-info-rgb, 0, 199, 190), var(--status-border-opacity));
+  border: 1px solid rgba(var(--color-info-rgb), var(--status-border-opacity));
 }
 
-/* Container layout */
+/* ==================== CONTAINER LAYOUT ==================== */
 .container {
   width: 100%;
   margin-right: auto;
@@ -586,98 +541,44 @@ select.form-control {
 }
 
 @media (min-width: 640px) {
-  .container {
-    max-width: var(--container-sm);
-  }
+  .container { max-width: var(--container-sm); }
 }
 @media (min-width: 768px) {
-  .container {
-    max-width: var(--container-md);
-  }
+  .container { max-width: var(--container-md); }
 }
 @media (min-width: 1024px) {
-  .container {
-    max-width: var(--container-lg);
-  }
+  .container { max-width: var(--container-lg); }
 }
 @media (min-width: 1280px) {
-  .container {
-    max-width: var(--container-xl);
-  }
+  .container { max-width: var(--container-xl); }
 }
 
-/* Utility classes */
-.flex {
-  display: flex;
-}
-.flex-col {
-  flex-direction: column;
-}
-.items-center {
-  align-items: center;
-}
-.justify-center {
-  justify-content: center;
-}
-.justify-between {
-  justify-content: space-between;
-}
-.gap-4 {
-  gap: var(--space-4);
-}
-.gap-8 {
-  gap: var(--space-8);
-}
-.gap-16 {
-  gap: var(--space-16);
-}
+/* ==================== UTILITY CLASSES ==================== */
+.flex { display: flex; }
+.flex-col { flex-direction: column; }
+.items-center { align-items: center; }
+.justify-center { justify-content: center; }
+.justify-between { justify-content: space-between; }
+.gap-4 { gap: var(--space-4); }
+.gap-8 { gap: var(--space-8); }
+.gap-16 { gap: var(--space-16); }
 
-.m-0 {
-  margin: 0;
-}
-.mt-8 {
-  margin-top: var(--space-8);
-}
-.mb-8 {
-  margin-bottom: var(--space-8);
-}
-.mx-8 {
-  margin-left: var(--space-8);
-  margin-right: var(--space-8);
-}
-.my-8 {
-  margin-top: var(--space-8);
-  margin-bottom: var(--space-8);
-}
+.m-0 { margin: 0; }
+.mt-8 { margin-top: var(--space-8); }
+.mb-8 { margin-bottom: var(--space-8); }
+.mx-8 { margin-left: var(--space-8); margin-right: var(--space-8); }
+.my-8 { margin-top: var(--space-8); margin-bottom: var(--space-8); }
 
-.p-0 {
-  padding: 0;
-}
-.py-8 {
-  padding-top: var(--space-8);
-  padding-bottom: var(--space-8);
-}
-.px-8 {
-  padding-left: var(--space-8);
-  padding-right: var(--space-8);
-}
-.py-16 {
-  padding-top: var(--space-16);
-  padding-bottom: var(--space-16);
-}
-.px-16 {
-  padding-left: var(--space-16);
-  padding-right: var(--space-16);
-}
+.p-0 { padding: 0; }
+.py-8 { padding-top: var(--space-8); padding-bottom: var(--space-8); }
+.px-8 { padding-left: var(--space-8); padding-right: var(--space-8); }
+.py-16 { padding-top: var(--space-16); padding-bottom: var(--space-16); }
+.px-16 { padding-left: var(--space-16); padding-right: var(--space-16); }
 
-.block {
-  display: block;
-}
-.hidden {
-  display: none;
-}
+.block { display: block; }
+.hidden { display: none; }
 
-/* Accessibility */
+/* ==================== ACCESSIBILITY ==================== */
 .sr-only {
   position: absolute;
   width: 1px;
@@ -695,33 +596,12 @@ select.form-control {
   outline-offset: 2px;
 }
 
-/* Dark mode specifics */
-[data-color-scheme="dark"] .btn--outline {
-  border: 1px solid var(--color-border-secondary);
-}
-
 @font-face {
   font-family: 'FKGroteskNeue';
-  src: url('https://r2cdn.perplexity.ai/fonts/FKGroteskNeue.woff2')
-    format('woff2');
+  src: url('https://r2cdn.perplexity.ai/fonts/FKGroteskNeue.woff2') format('woff2');
 }
 
-/* App.css - Main application layout */
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  font-family: var(--font-family-base);
-  background-color: var(--color-background);
-  color: var(--color-text);
-  line-height: var(--line-height-normal);
-  -webkit-font-smoothing: antialiased;
-}
-
+/* ==================== APP LAYOUT ==================== */
 .app-container {
   display: grid;
   grid-template-columns: 1fr 380px;
@@ -733,7 +613,6 @@ body {
   align-items: start;
 }
 
-/* Main content area (left side) */
 .main-content {
   display: flex;
   flex-direction: column;
@@ -741,7 +620,6 @@ body {
   min-height: calc(100vh - 64px);
 }
 
-/* Task list section takes up most space */
 .main-content > .section:first-child {
   flex: 1;
   display: flex;
@@ -753,12 +631,10 @@ body {
   flex: 1;
 }
 
-/* Task creator section - compact at bottom */
 .main-content > .section:nth-child(2) {
   flex-shrink: 0;
 }
 
-/* Sidebar (right side) */
 .sidebar {
   display: flex;
   flex-direction: column;
@@ -790,7 +666,7 @@ body {
   flex-shrink: 0;
 }
 
-/* Section styling */
+/* ==================== SECTION STYLING ==================== */
 .section {
   background: var(--color-surface);
   border-radius: var(--radius-lg);
@@ -822,6 +698,7 @@ body {
   line-height: var(--line-height-tight);
 }
 
+/* ==================== TIMER COMPONENTS ==================== */
 .running-timer {
   display: flex;
   position: fixed;
@@ -844,7 +721,7 @@ body {
 }
 
 .stopped-timer {
-  display:inline-flex;
+  display: inline-flex;
   position: fixed;
   transform: translateX(-50%);
   left: 50%;
@@ -914,7 +791,7 @@ body {
   width: 25px;
   height: 25px;
   padding: 0;
-  background: none !important; 
+  background: none !important;
   box-shadow: none;
   border: none;
   display: flex;
@@ -930,6 +807,7 @@ body {
   gap: 5px;
 }
 
+/* ==================== DISCLOSURE BUTTON ==================== */
 .disclosure-btn {
   display: flex;
   align-items: center;
@@ -947,7 +825,7 @@ body {
 }
 
 .disclosure-btn:hover {
-  background: var(--color-secondary);
+  background: var(--color-secondary) !important;
 }
 
 .disclosure-btn:focus {
@@ -961,24 +839,24 @@ body {
   font-size: 0.875rem;
 }
 
+/* ==================== TASK ACTIONS ==================== */
 .task-actions-div {
   display: inline-flex;
   gap: 10px;
 }
 
-.task-actions-div button{
+.task-actions-div button {
   width: 35px;
   height: 35px;
   padding: 0;
 }
 
-/* Clear tasks button */
 .clear-button {
   align-self: flex-start;
   margin-top: var(--space-8);
 }
 
-/* Responsive */
+/* ==================== RESPONSIVE ==================== */
 @media (max-width: 1200px) {
   .app-container {
     grid-template-columns: 1fr 340px;
@@ -991,18 +869,17 @@ body {
     grid-template-columns: 1fr;
     padding: var(--space-20);
   }
-  
+
   .sidebar {
     position: static;
     max-height: none;
   }
-  
+
   .main-content {
     min-height: auto;
   }
 }
 
-/* Mobile portrait breakpoint */
 @media (max-width: 480px) {
   .app-container {
     grid-template-columns: 1fr;

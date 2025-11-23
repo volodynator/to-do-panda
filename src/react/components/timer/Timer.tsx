@@ -3,9 +3,10 @@ import { useState, useEffect, useRef } from 'react';
 interface TimerProps {
   timeToCountdown: number;
   onComplete?: () => void;
+  onTick: (elapsedTimeInMs: number) => void;
 }
 
-export const Timer = ({ timeToCountdown, onComplete }: TimerProps) => {
+export const Timer = ({ timeToCountdown, onComplete, onTick }: TimerProps) => {
   const TIME_IN_MS = 60 * timeToCountdown * 1000;
 
   const [time, setTime] = useState(TIME_IN_MS);
@@ -27,6 +28,8 @@ export const Timer = ({ timeToCountdown, onComplete }: TimerProps) => {
       const now = Date.now();
       const elapsed = now - startTimeRef.current;
       const remaining = initialTimeRef.current - elapsed;
+      
+      onTick(elapsed);
 
       if (remaining > 0) {
         setTime(remaining);

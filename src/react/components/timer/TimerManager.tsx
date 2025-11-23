@@ -11,7 +11,8 @@ export function TimerManager() {
   const [hours, setHours] = useState(0);
   const [isRunning, setIsRunning] = useState(false);
   const [timerKey, setTimerKey] = useState(0);
-  const { activeTasks, updateTask, reloadTasksAndPriorities } = useDBContext();
+  const { activeTasks, updateTask } = useDBContext();
+  const [elapsedMs, setElapsedMs] = useState(0);
 
   const handleStart = () => {
     setTimeToCountdownInMins(hours * 60 + minutes);
@@ -20,8 +21,17 @@ export function TimerManager() {
     }
   };
 
-  const handleStop = () => {
+  const handleStop = async () => {
     setIsRunning(false);
+
+    if (selectedTask) {
+      const elapsedTimeInMins = Math.floor(elapsedMs / 60000);
+      if (elapsedTimeInMins > 0) {
+        const newTimeSpent = selectedTask.timeSpent + elapsedTimeInMins;
+        selectedTask.timeSpent = newTimeSpent;
+        await updateTask(selectedTask?.id, selectedTask);
+      }
+    }
   };
 
   const handleReset = () => {
@@ -35,9 +45,7 @@ export function TimerManager() {
       const newTimeSpent = selectedTask.timeSpent + timeToCountdownInMins;
       selectedTask.timeSpent = newTimeSpent;
       await updateTask(selectedTask?.id, selectedTask);
-      console.log(`New value ${selectedTask.timeSpent}`);
     }
-    await reloadTasksAndPriorities();
   };
 
   function runningTimer() {
@@ -47,6 +55,7 @@ export function TimerManager() {
           key={timerKey}
           timeToCountdown={timeToCountdownInMins}
           onComplete={handleTimerEnd}
+          onTick={(ms) => setElapsedMs(ms)}
         />
         <div className="timer-controls">
           <button onClick={handleStop}>

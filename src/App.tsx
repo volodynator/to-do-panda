@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
 import { TaskList } from './react';
-import { TaskCreator } from './react';
 import { PriorityList } from './react/components/priorities';
 import { PriorityCreator } from './react/components/priorities';
 import { TimerManager } from './react/components/timer';
