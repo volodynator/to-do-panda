@@ -18,7 +18,6 @@ export function App() {
     completedTasks,
     priorities,
     reloadTasksAndPriorities,
-    clearAllTasks,
   } = useDBContext();
 
   useEffect(() => {
