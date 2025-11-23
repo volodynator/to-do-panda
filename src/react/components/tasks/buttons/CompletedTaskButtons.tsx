@@ -7,7 +7,7 @@ interface CompletedTaskButtonsProps {
 }
 
 export function CompletedTaskButtons({ task }: CompletedTaskButtonsProps) {
-  const { reactivateTask } = useDBContext();
+  const { reactivateTask, deleteTask } = useDBContext();
 
   return (
     <div className="task-actions-div">
@@ -17,7 +17,7 @@ export function CompletedTaskButtons({ task }: CompletedTaskButtonsProps) {
       >
         <Undo />
       </button>
-      <button className="task-delete-btn" onClick={() => reactivateTask(task)}>
+      <button className="task-delete-btn" onClick={() => deleteTask(task)}>
         <Trash />
       </button>
     </div>
