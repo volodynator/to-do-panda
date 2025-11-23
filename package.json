@@ -13,6 +13,7 @@
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
+    "@headlessui/react": "^2.2.9",
     "bayes": "^1.0.0",
     "dexie": "^4.2.1",
     "dexie-react-hooks": "^4.2.0",
