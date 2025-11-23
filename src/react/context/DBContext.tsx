@@ -11,6 +11,8 @@ type DBContextType = {
   clearAllTasks: () => Promise<void>;
   completeTask: (task: Task) => Promise<void>;
   reactivateTask: (task: Task) => Promise<void>;
+  updateTask: (id: string, updatedTask: Task) => Promise<void>;
+  deleteTask: (task: Task) => Promise<void>;
 };
 
 type DBProviderProps = {

@@ -1,21 +1,17 @@
 import { useState } from 'react';
-
-import { manager, type Task } from '../../../model';
+import { type Task } from '../../../model';
 import { Timer } from './Timer';
 import { CirclePlay, CircleStop, RotateCcw } from 'lucide-react';
+import { useDBContext } from '../../context/DBContext';
 
-interface TimerManagerProps {
-  tasks: Task[];
-  onTimerEnded: () => void;
-}
-
-export function TimerManager({ tasks, onTimerEnded }: TimerManagerProps) {
+export function TimerManager() {
   const [timeToCountdownInMins, setTimeToCountdownInMins] = useState(5);
   const [selectedTask, setSelectedTask] = useState<Task | undefined>();
   const [minutes, setMinutes] = useState(0);
   const [hours, setHours] = useState(0);
   const [isRunning, setIsRunning] = useState(false);
   const [timerKey, setTimerKey] = useState(0);
+  const { activeTasks, updateTask, reloadTasksAndPriorities } = useDBContext();
 
   const handleStart = () => {
     setTimeToCountdownInMins(hours * 60 + minutes);
@@ -36,14 +32,12 @@ export function TimerManager({ tasks, onTimerEnded }: TimerManagerProps) {
   const handleTimerEnd = async () => {
     setIsRunning(false);
     if (selectedTask) {
-      console.log(`Time spent ${timeToCountdownInMins}`);
-      console.log(`Old value ${selectedTask.timeSpent}`);
       const newTimeSpent = selectedTask.timeSpent + timeToCountdownInMins;
       selectedTask.timeSpent = newTimeSpent;
-      await manager.updateTask(selectedTask?.id, selectedTask);
+      await updateTask(selectedTask?.id, selectedTask);
       console.log(`New value ${selectedTask.timeSpent}`);
     }
-    onTimerEnded();
+    await reloadTasksAndPriorities();
   };
 
   function runningTimer() {
@@ -98,13 +92,13 @@ export function TimerManager({ tasks, onTimerEnded }: TimerManagerProps) {
             value={selectedTask?.title ?? ''}
             onChange={(e) => {
               const title = e.target.value;
-              const task = tasks.find((t) => t.title === title);
+              const task = activeTasks.find((t) => t.title === title);
               setSelectedTask(task);
             }}
             disabled={isRunning}
           >
             <option value="">select task</option>
-            {tasks.map((t) => (
+            {activeTasks.map((t) => (
               <option key={t.id} value={t.title}>
                 {t.title}
               </option>

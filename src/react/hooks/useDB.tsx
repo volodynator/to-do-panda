@@ -81,6 +81,24 @@ export const useDB = () => {
     }
   }
 
+  async function updateTask(id: string, updatedTask: Task): Promise<void> {
+    try {
+      await manager.updateTask(id, updatedTask);
+      await reloadTasksAndPriorities();
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  async function deleteTask(task: Task): Promise<void> {
+    try {
+      await manager.deleteTask(task.id);
+      await reloadTasksAndPriorities();
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
   return {
     activeTasks: tasks,
     completedTasks: completedTasks,
@@ -90,5 +108,7 @@ export const useDB = () => {
     clearAllTasks,
     completeTask,
     reactivateTask,
+    updateTask,
+    deleteTask
   };
 };

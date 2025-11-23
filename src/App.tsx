@@ -30,10 +30,7 @@ export function App() {
   return (
     <div>
       <div className="timer">
-        <TimerManager
-          tasks={activeTasks}
-          onTimerEnded={reloadTasksAndPriorities}
-        />
+        <TimerManager/>
       </div>
       <div className="app-container">
         <div className="main-content">
