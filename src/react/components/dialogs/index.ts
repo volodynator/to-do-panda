@@ -1,1 +1,2 @@
-export * from './DeleteTaskDialog';
+export * from './DeleteTaskDialog'
+export * from './TaskCreatorDialog'

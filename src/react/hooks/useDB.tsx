@@ -99,6 +99,15 @@ export const useDB = () => {
     }
   }
 
+  async function createTask(task: Task): Promise<void> {
+    try {
+      await manager.createTask(task);
+      await reloadTasksAndPriorities();
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
   return {
     activeTasks: tasks,
     completedTasks: completedTasks,
@@ -110,5 +119,6 @@ export const useDB = () => {
     reactivateTask,
     updateTask,
     deleteTask,
+    createTask
   };
 };

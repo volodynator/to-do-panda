@@ -1,21 +1,29 @@
 import { Dialog } from '@headlessui/react';
-import { Trash2 } from 'lucide-react';
+import { CircleFadingPlus } from 'lucide-react';
 import { useState } from 'react';
+import { TaskCreator } from '../tasks';
 
-interface DeleteTaskDialogProps {
-  onConfirmation: () => Promise<void>;
-}
 
-export function DeleteTaskDialog({ onConfirmation }: DeleteTaskDialogProps) {
+export function TaskCreatorDialog() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
     <>
       <button
         className="btn btn--outline btn--sm"
+        style={{
+            position: 'fixed',
+            width: '100px',
+            height: '100px',
+            bottom: 'var(--space-24)',
+            right: 'var(--space-24)',
+            borderRadius: '999px',
+            zIndex: 20,
+            background: 'var(--color-bg-8)'
+        }}
         onClick={() => setIsOpen(true)}
       >
-        <Trash2 />
+        <CircleFadingPlus size={64} color="var(--color-primary)"/>
       </button>
 
       <Dialog open={isOpen} onClose={() => setIsOpen(false)}>
@@ -50,7 +58,7 @@ export function DeleteTaskDialog({ onConfirmation }: DeleteTaskDialogProps) {
                 lineHeight: 'var(--line-height-tight)',
               }}
             >
-              Delete task
+              Create Task
             </Dialog.Title>
 
             <Dialog.Description
@@ -60,17 +68,10 @@ export function DeleteTaskDialog({ onConfirmation }: DeleteTaskDialogProps) {
                 marginBottom: 'var(--space-8)',
               }}
             >
-              This will permanently delete the task
+              Please enter the data
             </Dialog.Description>
-            <p
-              style={{
-                color: 'var(--color-text)',
-                fontSize: 'var(--font-size-base)',
-                marginBottom: 'var(--space-20)',
-              }}
-            >
-              Are you sure you want to delete the task?
-            </p>
+
+            <TaskCreator/>
 
             <div
               style={{
@@ -80,23 +81,15 @@ export function DeleteTaskDialog({ onConfirmation }: DeleteTaskDialogProps) {
               }}
             >
               <button
-                className="btn btn--secondary"
-                style={{
-                  width: '100px'
-                }}
-                onClick={() => setIsOpen(false)}
-              >
-                Cancel
-              </button>
-              <button
                 className="btn btn--primary"
                 style={{
                   background: 'var(--color-error)',
-                  width: '100px'
+                  width: '100%',
+                  marginTop: 'var(--space-12)'
                 }}
-                onClick={onConfirmation}
+                onClick={() => setIsOpen(false)}
               >
-                Delete
+                Close
               </button>
             </div>
           </Dialog.Panel>

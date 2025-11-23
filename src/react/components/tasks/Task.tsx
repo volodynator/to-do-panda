@@ -14,8 +14,8 @@ export default function TaskCard({ task, renderActions }: TaskCardProps) {
       <td>{task.title}</td>
       <td>
         <div className="priority-badge-container">
-          <span
-            className="priority-badge"
+          <div
+            className="color-indicator"
             style={{ backgroundColor: task.priority.color }}
           />
           <span>{task.priority.name}</span>

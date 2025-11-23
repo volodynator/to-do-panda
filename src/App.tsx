@@ -11,6 +11,7 @@ import './css/Form.css';
 import './css/Table.css';
 import { useDBContext } from './react/context/DBContext';
 import { CompletedTasksDisclosure } from './react/components/tasks/CompletedTasksDisclosure';
+import { TaskCreatorDialog } from './react/components/dialogs';
 
 export function App() {
   const {
@@ -44,13 +45,7 @@ export function App() {
             <CompletedTasksDisclosure tasks={completedTasks} />
           </div>
 
-          <div className="section">
-            <h1>Add new task</h1>
-            <TaskCreator
-              priorities={priorities}
-              onUpdated={reloadTasksAndPriorities}
-            />
-          </div>
+          <TaskCreatorDialog/>
 
           <button className="secondary clear-button" onClick={clearAllTasks}>
             Clear Tasks

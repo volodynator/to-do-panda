@@ -1,16 +1,13 @@
-import { manager, type Priority, type Task } from '../../../model';
+import { type Priority, type Task } from '../../../model';
 import { useState } from 'react';
 import { revivedClassifier } from '../../../classifier/classifier';
 import '../../../css/Button.css';
 import '../../../css/Form.css';
 import '../../../css/Table.css';
+import { useDBContext } from '../../context/DBContext';
 
-interface TaskCreatorProps {
-  priorities: Priority[];
-  onUpdated: () => void;
-}
 
-export function TaskCreator({ priorities, onUpdated }: TaskCreatorProps) {
+export function TaskCreator() {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [completed, setCompleted] = useState(false);
@@ -22,6 +19,7 @@ export function TaskCreator({ priorities, onUpdated }: TaskCreatorProps) {
   const [notificationDate, setNotificationDate] = useState('');
   const [notificationTime, setNotificationTime] = useState('');
   const [status, setStatus] = useState('');
+  const { priorities, createTask, reloadTasksAndPriorities } = useDBContext();
 
   async function classify(task: string): Promise<string> {
     const result = await revivedClassifier.categorize(task);
@@ -56,10 +54,9 @@ export function TaskCreator({ priorities, onUpdated }: TaskCreatorProps) {
           timeSpent: 0,
         } as Task;
 
-        const id = await manager.createTask(newTask);
-        console.log(await manager.getActiveTasks());
+        await createTask(newTask);
 
-        setStatus(`Task ${title} successfully added. Got id ${id}`);
+        setStatus(`Task ${title} successfully added.`);
         setTitle('');
         setDescription('');
         setCompleted(false);
@@ -68,7 +65,7 @@ export function TaskCreator({ priorities, onUpdated }: TaskCreatorProps) {
         setDueDate('');
         setNotificationDate('');
         setNotificationTime('');
-        onUpdated();
+        await reloadTasksAndPriorities();
       }
     } catch (error) {
       setStatus(`Failed to add ${title}: ${error}`);
