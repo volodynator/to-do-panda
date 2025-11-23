@@ -14,13 +14,13 @@
   --color-charcoal-800: rgba(28, 28, 30, 1);
   --color-slate-900: rgba(0, 0, 0, 1);
   
-  /* Bright color palette */
-  --color-blue-300: rgba(100, 200, 255, 1);
-  --color-blue-400: rgba(50, 150, 255, 1);
-  --color-blue-500: rgba(0, 122, 255, 1);
-  --color-blue-600: rgba(0, 100, 230, 1);
-  --color-blue-700: rgba(0, 80, 200, 1);
-  --color-blue-800: rgba(0, 60, 170, 1);
+  /* Bright color palette - Ocean Blue primary */
+  --color-blue-300: rgba(50, 170, 235, 1);         /* Lighter */
+  --color-blue-400: rgba(0, 150, 215, 1);          /* Medium */
+  --color-blue-500: rgba(0, 128, 195, 1);          /* Primary - YOUR COLOR */
+  --color-blue-600: rgba(0, 110, 175, 1);          /* Hover */
+  --color-blue-700: rgba(0, 90, 150, 1);           /* Active */
+  --color-blue-800: rgba(0, 70, 125, 1);           /* Darker */
   
   --color-purple-400: rgba(191, 90, 242, 1);
   --color-purple-500: rgba(175, 82, 222, 1);
@@ -52,7 +52,7 @@
 
   /* RGB versions for opacity control */
   --color-brown-600-rgb: 142, 142, 147;
-  --color-blue-500-rgb: 0, 122, 255;
+  --color-blue-500-rgb: 0, 128, 195;               /* YOUR PRIMARY RGB */
   --color-purple-500-rgb: 175, 82, 222;
   --color-pink-500-rgb: 255, 45, 85;
   --color-green-500-rgb: 52, 199, 89;
@@ -64,7 +64,7 @@
   --color-slate-500-rgb: 98, 108, 113;
   --color-red-400-rgb: 255, 69, 58;
   --color-orange-400-rgb: 255, 159, 10;
-  --color-blue-rgb: 0, 122, 255;
+  --color-blue-rgb: 0, 128, 195;                   /* YOUR PRIMARY RGB */
   --color-green-rgb: 52, 199, 89;
   --color-red-rgb: 255, 59, 48;
   --color-orange-rgb: 255, 149, 0;
@@ -77,14 +77,14 @@
   --color-text-secondary-rgb: 108, 117, 125;
 
   /* Bright background accents */
-  --color-bg-1: rgba(0, 122, 255, 0.12);
-  --color-bg-2: rgba(255, 149, 0, 0.12);
-  --color-bg-3: rgba(52, 199, 89, 0.12);
-  --color-bg-4: rgba(255, 59, 48, 0.12);
-  --color-bg-5: rgba(175, 82, 222, 0.12);
-  --color-bg-6: rgba(255, 204, 0, 0.12);
-  --color-bg-7: rgba(255, 45, 85, 0.12);
-  --color-bg-8: rgba(32, 156, 238, 0.12);
+  --color-bg-1: rgba(0, 128, 195, 0.12);           /* Ocean Blue */
+  --color-bg-2: rgba(255, 149, 0, 0.12);           /* Orange */
+  --color-bg-3: rgba(52, 199, 89, 0.12);           /* Green */
+  --color-bg-4: rgba(255, 59, 48, 0.12);           /* Red */
+  --color-bg-5: rgba(175, 82, 222, 0.12);          /* Purple */
+  --color-bg-6: rgba(255, 204, 0, 0.12);           /* Yellow */
+  --color-bg-7: rgba(255, 45, 85, 0.12);           /* Pink */
+  --color-bg-8: rgba(32, 156, 238, 0.12);          /* Cyan */
 
   /* Semantic Color Tokens - Light Mode (DEFAULT) */
   --color-background: rgb(248, 249, 250);
@@ -92,17 +92,17 @@
   --color-text: rgb(33, 37, 41);
   --color-text-secondary: rgba(108, 117, 125, 0.8);
   
-  /* Primary Color - Bright Blue */
-  --color-primary: rgb(0, 122, 255);
-  --color-primary-hover: rgb(0, 100, 230);
-  --color-primary-active: rgb(0, 80, 200);
+  /* Primary Color - Ocean Blue rgb(0, 128, 195) */
+  --color-primary: rgb(0, 128, 195);
+  --color-primary-hover: rgb(0, 110, 175);
+  --color-primary-active: rgb(0, 90, 150);
   
   --color-secondary: rgba(142, 142, 147, 0.15);
   --color-secondary-hover: rgba(142, 142, 147, 0.25);
   --color-secondary-active: rgba(142, 142, 147, 0.35);
   
   --color-border: rgba(0, 0, 0, 0.12);
-  --color-btn-primary-text: rgb(255, 255, 255);
+  --color-btn-primary-text: rgb(255, 255, 255);    /* White text on blue */
   --color-card-border: rgba(0, 0, 0, 0.08);
   --color-card-border-inner: rgba(0, 0, 0, 0.06);
   
@@ -110,7 +110,7 @@
   --color-error: rgb(255, 59, 48);
   --color-success: rgb(52, 199, 89);
   --color-warning: rgb(255, 149, 0);
-  --color-info: rgb(0, 122, 255);
+  --color-info: rgb(0, 128, 195);                  /* Ocean Blue */
   
   /* Additional accent colors */
   --color-accent-purple: rgb(175, 82, 222);
@@ -118,13 +118,13 @@
   --color-accent-cyan: rgb(32, 156, 238);
   --color-accent-yellow: rgb(255, 204, 0);
   
-  --color-focus-ring: rgba(0, 122, 255, 0.5);
+  --color-focus-ring: rgba(0, 128, 195, 0.4);
 
   /* RGB versions for status colors */
   --color-success-rgb: 52, 199, 89;
   --color-error-rgb: 255, 59, 48;
   --color-warning-rgb: 255, 149, 0;
-  --color-info-rgb: 0, 122, 255;
+  --color-info-rgb: 0, 128, 195;
 
   /* Common style patterns */
   --focus-ring: 0 0 0 4px var(--color-focus-ring);
@@ -203,7 +203,7 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --color-gray-400-rgb: 142, 142, 147;
-    --color-blue-rgb: 10, 132, 255;
+    --color-blue-rgb: 50, 170, 235;                /* Lighter for dark mode */
     --color-purple-rgb: 191, 90, 242;
     --color-pink-rgb: 255, 55, 95;
     --color-green-rgb: 50, 215, 75;
@@ -212,7 +212,7 @@
     --color-gray-300-rgb: 174, 174, 178;
     --color-gray-200-rgb: 229, 229, 234;
 
-    --color-bg-1: rgba(10, 132, 255, 0.2);
+    --color-bg-1: rgba(50, 170, 235, 0.15);        /* Ocean Blue Dark */
     --color-bg-2: rgba(255, 159, 10, 0.2);
     --color-bg-3: rgba(50, 215, 75, 0.2);
     --color-bg-4: rgba(255, 69, 58, 0.2);
@@ -225,9 +225,9 @@
     --color-surface: rgb(28, 28, 30);
     --color-text: rgb(255, 255, 255);
     --color-text-secondary: rgba(229, 229, 234, 0.7);
-    --color-primary: rgb(10, 132, 255);
-    --color-primary-hover: rgb(40, 150, 255);
-    --color-primary-active: rgb(70, 170, 255);
+    --color-primary: rgb(50, 170, 235);            /* Lighter Ocean Blue */
+    --color-primary-hover: rgb(0, 150, 215);       /* Medium */
+    --color-primary-active: rgb(0, 128, 195);      /* Base color */
     --color-secondary: rgba(142, 142, 147, 0.2);
     --color-secondary-hover: rgba(142, 142, 147, 0.3);
     --color-secondary-active: rgba(142, 142, 147, 0.4);
@@ -235,15 +235,15 @@
     --color-error: rgb(255, 69, 58);
     --color-success: rgb(50, 215, 75);
     --color-warning: rgb(255, 159, 10);
-    --color-info: rgb(10, 132, 255);
+    --color-info: rgb(50, 170, 235);
     
     --color-accent-purple: rgb(191, 90, 242);
     --color-accent-pink: rgb(255, 55, 95);
     --color-accent-cyan: rgb(50, 173, 230);
     --color-accent-yellow: rgb(255, 214, 10);
     
-    --color-focus-ring: rgba(10, 132, 255, 0.5);
-    --color-btn-primary-text: rgb(255, 255, 255);
+    --color-focus-ring: rgba(50, 170, 235, 0.4);
+    --color-btn-primary-text: rgb(255, 255, 255);  /* White text */
     --color-card-border: rgba(255, 255, 255, 0.1);
     --color-card-border-inner: rgba(255, 255, 255, 0.08);
     --shadow-inset-sm: inset 0 1px 0 rgba(255, 255, 255, 0.12),
@@ -258,7 +258,7 @@
     --color-success-rgb: 50, 215, 75;
     --color-error-rgb: 255, 69, 58;
     --color-warning-rgb: 255, 159, 10;
-    --color-info-rgb: 10, 132, 255;
+    --color-info-rgb: 50, 170, 235;
   }
 }
 
@@ -736,7 +736,7 @@ select.form-control {
   letter-spacing: 1px;
   font-family: monospace;
   gap: 10px;
-  color: white;
+  color: var(--color-btn-primary-text);
   z-index: 20;
 }
 
@@ -837,6 +837,10 @@ select.form-control {
   color: var(--color-text-secondary);
   margin-top: 0.25rem;
   font-size: 0.875rem;
+}
+
+.disclosure-panel .completed-task-title{
+  text-decoration: line-through;
 }
 
 /* ==================== TASK ACTIONS ==================== */

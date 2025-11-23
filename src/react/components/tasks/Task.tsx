@@ -11,7 +11,7 @@ interface TaskCardProps {
 export default function TaskCard({ task, renderActions }: TaskCardProps) {
   return (
     <tr>
-      <td>{task.title}</td>
+      <td className='completed-task-title'>{task.title}</td>
       <td>
         <div className="priority-badge-container">
           <div
